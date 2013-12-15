@@ -245,6 +245,9 @@ width: 100%;
 </html>
 EOF
 
+
+USAGE="$0: <git url>"
+if [ $# -lt 1 ]; then echo "Error: git url is required.\n$USAGE" >&2; exit 1; fi
 echo "pwn start"
 git clone $1
 echo $(basename $1 | awk -F "." '{ print $1 }')
@@ -253,5 +256,6 @@ cd $(basename $1 | awk -F "." '{ print $1 }')
 git add *
 git commit -m "1"
 git push
-echo "Open your gitlab's Files TAB"
+echo "DONE!Open your gitlab's Files TAB"
+
 
